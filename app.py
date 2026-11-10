@@ -13,9 +13,11 @@ from PIL import Image
 # KONFIGURASI
 # ------------------------------------------------------------
 st.set_page_config(page_title="Flower Recognition", page_icon="", layout="centered")
-
+ 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(BASE, "output")
+if not os.path.exists(os.path.join(OUT_DIR, "final_flower_cnn_model.keras")):
+    OUT_DIR = BASE  # kalau file ada di root repo (tanpa folder output/)
 MODEL_PATH = os.path.join(OUT_DIR, "final_flower_cnn_model.keras")
 CLASS_PATH = os.path.join(OUT_DIR, "class_names.json")
 IMG_SIZE = (160, 160)
